@@ -60,6 +60,14 @@ int main(){
             cmd = strtok(NULL, ";");
         }
         for (char* c : args) {
+            string sss = c;
+            sss.erase(0, sss.find_first_not_of(" \t\n\r"));
+            sss.erase(sss.find_last_not_of(" \t\n\r") + 1);
+            if (sss == "exit") {
+                cout << "Exiting shell...\n";
+                free(input);
+                return 0;
+            }
             pipeline(c); 
             char dir[256]; 
             getcwd(dir, sizeof(dir));

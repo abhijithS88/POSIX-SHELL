@@ -169,6 +169,7 @@ string getDirectory(){
 void maintainDirectory(char dir[]){
     int sz = directories.size();
     string str1 = directories[sz-1];
+    if(str1==dir)return;
     if(directories.size()>1)directories.pop_back();
     if(directories.size()>1)directories.pop_back();
     directories.push_back(str1);
